@@ -1,10 +1,10 @@
-//CommonJS, every file is module (by default)
-//Modules - Encapsulated Code (only share minimum)
+const { readFileSync, writeFileSync } = require('fs')
 
-const {MIKE,SARAH} = require('./4-names')
-const sayHi = require('./5-utils')
-require('./7-mind-grenade')
+const firstFileContent = readFileSync('./content/first.txt', 'utf8')
+const secondFileContent = readFileSync('./content/second.txt', 'utf8')
 
-sayHi('Randy')
-sayHi(MIKE)
-sayHi(SARAH)
+console.log(firstFileContent,secondFileContent)
+
+// creates new file result-sync.txt if not already present inside the content folder and write the values to that file
+//flag a appends the text
+writeFileSync('./content/result-sync.txt',`Here is the result ${firstFileContent}, ${secondFileContent}`,{flag: 'a'})
